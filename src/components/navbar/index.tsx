@@ -10,12 +10,13 @@ import { XIcon } from "./icons/XIcon";
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleToggleMenu = () => setIsOpen(!isOpen);
   const handleCloseMenu = () => setIsOpen(false);
 
   return (
     <header className="px-2 py-6 sm:px-4 md:pt-12 dark:bg-gray-900">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
-        <Link to="/" className="z-10 mr-6 flex flex-1">
+        <Link to="/" className="z-10 mr-6 flex flex-1" aria-current="page">
           <Logo />
           <span className="sr-only">Wieni</span>
         </Link>
@@ -24,17 +25,20 @@ export const Navbar = () => {
           data-collapse-toggle="mobile-menu"
           type="button"
           className="z-10 ml-3 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="menu"
+          aria-label="menu"
+          aria-haspopup="menu"
+          aria-controls="navigation"
           aria-expanded={isOpen}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={handleToggleMenu}
         >
           <span className="sr-only">{`${
             isOpen ? "Close" : "Open"
           } main menu`}</span>
-          {isOpen ? <XIcon /> : <HamburgerIcon />}
+          <div aria-hidden="true">{isOpen ? <XIcon /> : <HamburgerIcon />}</div>
         </button>
         <nav
-          id="menu"
+          id="navigation"
+          role="navigation"
           className={`relative w-full md:w-auto ${
             isOpen ? "block" : "hidden md:block"
           }`}

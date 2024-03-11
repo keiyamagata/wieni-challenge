@@ -22,6 +22,7 @@ export const CustomLink = ({ path, name, onClick }: CustomLinkProps) => {
         isActive ? navbarStyles.active : navbarStyles.default
       }
       onClick={onClick}
+      aria-current="page"
     >
       {name}
     </NavLink>

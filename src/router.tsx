@@ -3,17 +3,26 @@ import { MainLayout } from "./layouts/main";
 
 import { Homepage, Recipes } from "./pages";
 
-export const ROUTES = {
-  HOME: "/",
-  RECIPES: "/recipes",
-};
+export const ROUTES = [
+  {
+    path: "/",
+    name: "Home",
+    element: <Homepage />,
+  },
+  {
+    path: "/recipes",
+    name: "Recipes",
+    element: <Recipes />,
+  },
+];
 
 export const Router = () => {
   return (
     <Routes>
       <Route element={<MainLayout />}>
-        <Route path={ROUTES.HOME} element={<Homepage />} />
-        <Route path={ROUTES.RECIPES} element={<Recipes />} />
+        {ROUTES.map((route) => (
+          <Route key={route.name} path={route.path} element={route.element} />
+        ))}
       </Route>
     </Routes>
   );

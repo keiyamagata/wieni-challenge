@@ -1,4 +1,4 @@
 export * from "./HamburgerIcon";
-export * from "./XIcon";
+export * from "./CloseIcon";
 export * from "./DarkModeIcon";
 export * from "./LightModeIcon";

@@ -1,4 +1,4 @@
-export const XIcon = () => {
+export const CloseIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +6,7 @@ export const XIcon = () => {
       viewBox="0 0 24 24"
       strokeWidth={2}
       stroke="currentColor"
-      className="size-6"
+      className="size-6 text-neutral-900 dark:text-pampas"
     >
       <path
         strokeLinecap="round"

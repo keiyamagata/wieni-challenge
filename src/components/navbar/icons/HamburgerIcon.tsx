@@ -2,7 +2,7 @@ export const HamburgerIcon = () => {
   return (
     <>
       <svg
-        className="size-6"
+        className="size-6 text-neutral-900 dark:text-pampas"
         fill="currentColor"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"

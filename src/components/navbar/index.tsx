@@ -15,7 +15,7 @@ export const Navbar = () => {
   const handleCloseMenu = () => setIsOpen(false);
 
   return (
-    <header className="px-2 py-6 sm:px-4 md:pt-12 dark:bg-neutral-900">
+    <header className="px-2 py-6 sm:px-4 md:pt-12 dark:bg-neutral-950">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
         <Link
           to="/"
@@ -53,9 +53,10 @@ export const Navbar = () => {
               isOpen ? "block" : "hidden md:block"
             )}
           >
-            <ul className="fixed left-0 top-0 flex h-dvh w-full flex-col justify-center gap-1 bg-pampas text-right text-3xl md:relative md:mt-0 md:h-auto md:flex-row md:space-x-8 md:text-sm md:font-medium dark:bg-neutral-900">
+            <ul className="fixed left-0 top-0 flex h-dvh w-full flex-col justify-center gap-1 bg-transparent text-right text-3xl md:relative md:mt-0 md:h-auto md:flex-row md:space-x-8 md:text-sm md:font-medium">
               {ROUTES.map((route) => (
                 <CustomLink
+                  key={route.name}
                   path={route.path}
                   name={route.name}
                   onClick={handleCloseMenu}

@@ -18,8 +18,8 @@ export const Button = ({
       type="button"
       onClick={onClick}
       className={clsx(
-        "textColor group flex items-center gap-1 rounded-full px-3 py-1.5 ring-pink-500 hover:ring-2 focus:outline-none focus:ring-2",
-        disabled && "opacity-25 hover:bg-transparent hover:ring-0",
+        "textColor group flex items-center gap-1 rounded-full px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-500",
+        disabled ? "opacity-25 hover:bg-transparent" : "hover:bg-indigo-200",
         className
       )}
       disabled={disabled}

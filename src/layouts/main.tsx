@@ -14,7 +14,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
       data-testid="main"
     >
       <Navbar />
-      <div className="px-4 py-6 sm:px-4">
+      <div className="px-4 py-6 sm:px-0">
         <div className="container mx-auto">
           {outlet ? <Outlet /> : children}
         </div>

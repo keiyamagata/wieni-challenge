@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { MainLayout } from "./layouts/main";
 
-import { Homepage, Recipes } from "./pages";
+import { Homepage, NotFound, Recipes } from "./pages";
 
 export const ROUTES = [
   {
@@ -18,6 +18,11 @@ export const ROUTES = [
     path: "/recipes/:pageNumber",
     name: "Recipes",
     element: <Recipes />,
+  },
+  {
+    path: "*",
+    name: "",
+    element: <NotFound />,
   },
 ];
 

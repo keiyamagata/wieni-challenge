@@ -19,7 +19,7 @@ export const Navbar = () => {
       <div className="container mx-auto flex flex-wrap items-center justify-between">
         <Link
           to="/"
-          className="z-20 mr-6 flex flex-1 focus:outline-none focus:ring-2 focus:ring-pink-500"
+          className="z-20 mr-6 flex flex-1 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <Logo />
           <span className="sr-only">Wieni</span>
@@ -54,7 +54,7 @@ export const Navbar = () => {
             )}
           >
             <ul className="fixed left-0 top-0 flex h-dvh w-full flex-col justify-center gap-1 bg-transparent text-right text-3xl md:relative md:mt-0 md:h-auto md:flex-row md:space-x-8 md:text-sm md:font-medium">
-              {ROUTES.slice(0, -1).map((route) => (
+              {ROUTES.slice(0, 2).map((route) => (
                 <li key={route.name}>
                   <CustomLink
                     path={route.path}

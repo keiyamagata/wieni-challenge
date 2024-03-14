@@ -6,7 +6,7 @@ import { ROUTES } from "../../router";
 import { Logo } from "../logo";
 import { CustomLink } from "./CustomLink";
 import { HamburgerIcon, CloseIcon } from "./icons";
-import DarkModeButton from "./DarkModeButton";
+import { DarkModeButton } from "./DarkModeButton";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +19,7 @@ export const Navbar = () => {
       <div className="container mx-auto flex flex-wrap items-center justify-between">
         <Link
           to="/"
-          className="z-20 mr-6 flex flex-1 focus:outline-none focus:ring-2 focus:ring-neutral-900"
+          className="z-20 mr-6 flex flex-1 focus:outline-none focus:ring-2 focus:ring-pink-500"
         >
           <Logo />
           <span className="sr-only">Wieni</span>
@@ -54,13 +54,14 @@ export const Navbar = () => {
             )}
           >
             <ul className="fixed left-0 top-0 flex h-dvh w-full flex-col justify-center gap-1 bg-transparent text-right text-3xl md:relative md:mt-0 md:h-auto md:flex-row md:space-x-8 md:text-sm md:font-medium">
-              {ROUTES.map((route) => (
-                <CustomLink
-                  key={route.name}
-                  path={route.path}
-                  name={route.name}
-                  onClick={handleCloseMenu}
-                />
+              {ROUTES.slice(0, -1).map((route) => (
+                <li key={route.name}>
+                  <CustomLink
+                    path={route.path}
+                    name={route.name}
+                    onClick={handleCloseMenu}
+                  />
+                </li>
               ))}
             </ul>
           </nav>

@@ -9,18 +9,24 @@ export const Card = ({
   preparation,
 }: Recipe) => {
   return (
-    <article className="flex rounded-lg border border-neutral-200 bg-white/50 p-4 dark:border-neutral-700 dark:bg-neutral-900">
+    <article className="flex rounded-lg border border-neutral-500 bg-white/50 p-4 dark:border-neutral-500 dark:bg-neutral-900">
       <div className="block space-y-2">
         <h2 className="textColor text-2xl font-bold">{name}</h2>
-        <span className="mr-1 inline-block rounded bg-pink-200 px-2 py-1 text-xs font-semibold uppercase text-pink-600 last:mr-0">
-          {category}
+        <span className="mr-1 inline-block rounded bg-pink-100 px-2 py-1 text-xs font-semibold uppercase text-pink-700 last:mr-0 dark:bg-pink-700 dark:text-pink-100">
+          {category ?? "Cocktail"}
         </span>
 
         <h3 className="textColor text-lg font-bold">Ingredients</h3>
         <ul className="list-inside list-disc px-1 text-sm">
-          {ingredients.map((ingredient) => (
-            <li className="textColor">{`${ingredient.amount} ${ingredient.unit} ${ingredient.ingredient}`}</li>
-          ))}
+          {ingredients.map((ing) => {
+            const ingredient =
+              ing.special ?? `${ing.amount} ${ing.unit} ${ing.ingredient}`;
+            return (
+              <li key={ingredient} className="textColor">
+                {ingredient}
+              </li>
+            );
+          })}
           {garnish && <li className="textColor">Garnish: {garnish}</li>}
         </ul>
 

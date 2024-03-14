@@ -9,7 +9,7 @@ export const Card = ({
   preparation,
 }: Recipe) => {
   return (
-    <article className="flex rounded-lg border border-neutral-500 bg-white/50 p-4 dark:border-neutral-500 dark:bg-neutral-900">
+    <article className="flex rounded-lg border border-neutral-500 bg-white/50 p-4 shadow-xl dark:border-neutral-500 dark:bg-neutral-800">
       <div className="block space-y-2">
         <h2 className="textColor text-2xl font-bold">{name}</h2>
         <span className="mr-1 inline-block rounded bg-pink-100 px-2 py-1 text-xs font-semibold uppercase text-pink-700 last:mr-0 dark:bg-pink-700 dark:text-pink-100">

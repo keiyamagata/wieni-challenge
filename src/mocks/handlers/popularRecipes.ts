@@ -7,7 +7,7 @@ export const popularRecipes = rest.get(
   (req, res, { json }) => {
     return res(
       json({
-        cocktails,
+        data: cocktails.slice(0, 5),
       })
     );
   }

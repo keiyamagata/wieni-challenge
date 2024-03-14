@@ -14,6 +14,11 @@ export const ROUTES = [
     name: "Recipes",
     element: <Recipes />,
   },
+  {
+    path: "/recipes/:pageNumber",
+    name: "Recipes",
+    element: <Recipes />,
+  },
 ];
 
 export const Router = () => {

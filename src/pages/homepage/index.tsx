@@ -1,5 +1,3 @@
-import { Card } from "components/card";
-
 // TODO: REMOVE THIS CODE AND IMPLEMENT A NICE GRID!
 const Homepage = () => {
   return (
@@ -13,9 +11,6 @@ const Homepage = () => {
           <span>You can use the api endpoint </span>
           <code className="text-sm font-light">/api/recipes/popular</code>.
         </p>
-      </div>
-      <div>
-        <Card />
       </div>
     </main>
   );

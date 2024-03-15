@@ -45,15 +45,16 @@ export const Navbar = () => {
               {isOpen ? <CloseIcon /> : <HamburgerIcon />}
             </div>
           </button>
-          <nav
-            id="navigation"
-            role="navigation"
-            className={clsx(
-              "relative w-full md:w-auto",
-              isOpen ? "block" : "hidden md:block"
-            )}
-          >
-            <ul className="fixed left-0 top-0 flex h-dvh w-full flex-col justify-center gap-1 bg-transparent text-right text-3xl md:relative md:mt-0 md:h-auto md:flex-row md:space-x-8 md:text-sm md:font-medium">
+
+          <nav id="navigation" role="navigation" className="w-full md:w-auto">
+            <ul
+              className={clsx(
+                "absolute left-0 flex h-dvh w-full flex-col justify-center gap-1 bg-pampas text-right text-3xl transition-all duration-500 ease-in-out md:relative md:mt-0 md:h-auto md:flex-row md:space-x-8 md:bg-transparent md:text-sm md:font-medium dark:bg-neutral-950 md:dark:bg-transparent",
+                isOpen
+                  ? "top-0 opacity-100"
+                  : "-top-full opacity-0 md:opacity-100"
+              )}
+            >
               {ROUTES.slice(0, 2).map((route) => (
                 <li key={route.name}>
                   <CustomLink

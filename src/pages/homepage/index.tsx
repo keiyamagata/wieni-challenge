@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Skeleton } from "../../components";
+import { Card } from "../../components";
 import { useFetch } from "../../hooks";
 import { Recipe } from "../../types";
 import { Error, Loading } from "../../screens";

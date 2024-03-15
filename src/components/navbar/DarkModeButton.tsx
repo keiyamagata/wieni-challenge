@@ -13,11 +13,7 @@ export const DarkModeButton = () => {
   };
 
   return (
-    <button
-      type="button"
-      className="z-10 inline-flex items-center rounded-lg p-2 text-sm text-neutral-900 hover:bg-neutral-300 hover:ring-neutral-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:hover:bg-neutral-700 dark:focus:ring-indigo-500"
-      onClick={handleToggleTheme}
-    >
+    <button type="button" className="menuButton" onClick={handleToggleTheme}>
       <span className="sr-only">{`Switch to ${
         activeTheme === "dark" ? "light" : "dark"
       } mode`}</span>

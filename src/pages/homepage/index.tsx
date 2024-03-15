@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Card, Skeleton } from "../../components";
 import { useFetch } from "../../hooks";
 import { Recipe } from "../../types";
+import { Error, Loading } from "../../screens";
 
 const Homepage = () => {
   const [cocktails, setCocktails] = useState<Recipe[]>([]);
@@ -22,15 +23,8 @@ const Homepage = () => {
               Popular Cocktails
             </h1>
           </div>
-          {isLoading && (
-            <>
-              <Skeleton />
-              <Skeleton />
-              <Skeleton />
-              <Skeleton />
-              <Skeleton />
-            </>
-          )}
+          {isLoading && <Loading length={5} />}
+          {error && <Error />}
           {!isLoading &&
             !error &&
             cocktails.map((cocktail) => (
@@ -44,7 +38,6 @@ const Homepage = () => {
                 preparation={cocktail.preparation}
               />
             ))}
-          {error && <span>An error occured</span>}
           <div className="group flex min-h-28 items-center justify-center rounded-lg border border-neutral-500 bg-orange-100 shadow-xl dark:bg-neutral-800">
             <span className="cursor-default text-6xl transition duration-100 group-hover:-rotate-12 lg:text-9xl">
               😋

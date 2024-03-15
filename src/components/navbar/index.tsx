@@ -31,7 +31,7 @@ export const Navbar = () => {
           <button
             data-collapse-toggle="mobile-menu"
             type="button"
-            className="z-10 inline-flex items-center rounded-lg p-2 text-sm text-neutral-900 hover:bg-neutral-300 hover:ring-neutral-900 focus:outline-none focus:ring-2 focus:ring-neutral-900 md:hidden dark:hover:bg-neutral-700 dark:focus:ring-neutral-600"
+            className="menuButton md:hidden"
             aria-label="menu"
             aria-haspopup="menu"
             aria-controls="navigation"

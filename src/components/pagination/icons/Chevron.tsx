@@ -8,7 +8,7 @@ export const Chevron = ({ className }: { className?: string }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={clsx("size-5", className)}
+      className={clsx("textColor size-5", className)}
     >
       <path
         strokeLinecap="round"

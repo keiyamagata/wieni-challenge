@@ -3,4 +3,5 @@ export type Ingredient = {
   amount: number;
   ingredient: string;
   special?: string;
+  label?: string;
 };

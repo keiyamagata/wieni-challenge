@@ -10,7 +10,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
 
   return (
     <div
-      className="h-full overflow-auto bg-pampas dark:bg-neutral-900"
+      className="size-full overflow-auto bg-pampas dark:bg-neutral-900"
       data-testid="main"
     >
       <Navbar />

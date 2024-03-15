@@ -11,7 +11,8 @@ export const NotFound = () => {
           Cocktails not found
         </h1>
         <p className="mt-6 text-neutral-700 dark:text-neutral-300">
-          Sorry, we couldn’t find the cocktails you’re looking for.
+          Sorry, we couldn&#x2019;t find the cocktails you&#x2019;re looking
+          for.
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Link

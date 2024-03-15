@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 
-import { Card, Pagination, Spinner } from "../../components";
+import { CardGrid, Pagination } from "../../components";
 import { Recipe } from "../../types";
 import { useFetch, usePagination } from "../../hooks";
+import { Error, Loading } from "../../screens";
 
 const Recipes = () => {
   const [cocktails, setCocktails] = useState<Recipe[]>([]);
-  const [totalPages, setTotalPages] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
   const { page, goToNextPage, goToPreviousPage } = usePagination();
   const pageLimit = 8;
 
@@ -21,7 +22,7 @@ const Recipes = () => {
       setCocktails(data.data);
       setTotalPages(Math.ceil(data.total / pageLimit));
     }
-  }, [page, data]);
+  }, [data]);
 
   return (
     <main className="space-y-3 rounded-xl border border-neutral-500 bg-white/25 p-5 dark:border-0 dark:bg-transparent">
@@ -37,28 +38,9 @@ const Recipes = () => {
       />
 
       <section>
-        {isLoading && (
-          <div>
-            <Spinner />
-          </div>
-        )}
-        {!isLoading && !error ? (
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {cocktails.map((cocktail) => (
-              <Card
-                key={cocktail.name}
-                category={cocktail.category}
-                garnish={cocktail.garnish}
-                glass={cocktail.glass}
-                ingredients={cocktail.ingredients}
-                name={cocktail.name}
-                preparation={cocktail.preparation}
-              />
-            ))}
-          </div>
-        ) : (
-          <span>An error occured</span>
-        )}
+        {isLoading && <Loading length={8} />}
+        {error && <Error />}
+        {!isLoading && !error && <CardGrid items={cocktails} />}
       </section>
     </main>
   );

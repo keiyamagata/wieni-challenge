@@ -3,16 +3,26 @@ import { Link } from "react-router-dom";
 import clsx from "clsx";
 import { ROUTES } from "../../router";
 
+import { Button } from "../button";
 import { Logo } from "../logo";
 import { CustomLink } from "./CustomLink";
-import { HamburgerIcon, CloseIcon } from "./icons";
-import { DarkModeButton } from "./DarkModeButton";
+import { useDarkMode } from "../../hooks";
+import { HamburgerIcon, CloseIcon, DarkModeIcon, LightModeIcon } from "./icons";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { activeTheme, handleSetTheme } = useDarkMode();
 
   const handleToggleMenu = () => setIsOpen(!isOpen);
   const handleCloseMenu = () => setIsOpen(false);
+
+  const handleToggleTheme = () => {
+    if (activeTheme === "dark") {
+      handleSetTheme("light");
+    } else {
+      handleSetTheme("dark");
+    }
+  };
 
   return (
     <header className="px-2 py-6 sm:px-4 md:pt-12 dark:bg-neutral-950">
@@ -26,16 +36,21 @@ export const Navbar = () => {
         </Link>
 
         <div className="z-10 flex items-center gap-2 md:gap-8">
-          <DarkModeButton />
+          <Button primary onClick={handleToggleTheme}>
+            <span className="sr-only">{`Switch to ${
+              activeTheme === "dark" ? "light" : "dark"
+            } mode`}</span>
+            {activeTheme === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
+          </Button>
 
-          <button
+          <Button
+            primary
+            className="md:hidden"
             data-collapse-toggle="mobile-menu"
-            type="button"
-            className="menuButton md:hidden"
-            aria-label="menu"
-            aria-haspopup="menu"
-            aria-controls="navigation"
-            aria-expanded={isOpen}
+            ariaLabel="menu"
+            ariaHaspopup="menu"
+            ariaControls="navigation"
+            ariaExpanded={isOpen}
             onClick={handleToggleMenu}
           >
             <span className="sr-only">{`${
@@ -44,7 +59,7 @@ export const Navbar = () => {
             <div aria-hidden="true">
               {isOpen ? <CloseIcon /> : <HamburgerIcon />}
             </div>
-          </button>
+          </Button>
 
           <nav id="navigation" role="navigation" className="w-full md:w-auto">
             <ul

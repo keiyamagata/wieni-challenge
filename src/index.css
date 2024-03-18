@@ -23,7 +23,3 @@ svg {
 .textColor {
   @apply text-neutral-900 dark:text-pampas;
 }
-
-.menuButton {
-  @apply textColor z-10 inline-flex items-center rounded-lg p-2 hover:bg-indigo-100 hover:ring-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:hover:bg-indigo-700;
-}

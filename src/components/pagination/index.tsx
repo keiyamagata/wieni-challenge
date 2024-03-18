@@ -17,7 +17,11 @@ export const Pagination = ({
   return (
     <div className="flex w-full justify-center pb-8">
       <div className="flex items-center rounded-full border border-neutral-500">
-        <Button onClick={goToPreviousPage} disabled={page <= 1}>
+        <Button
+          onClick={goToPreviousPage}
+          disabled={page <= 1}
+          className="px-3 py-1.5"
+        >
           <span className="sr-only">Previous page</span>
           <Chevron />
           Back
@@ -27,7 +31,11 @@ export const Pagination = ({
             {page} of {totalPages}
           </span>
         </div>
-        <Button onClick={goToNextPage} disabled={page === totalPages}>
+        <Button
+          onClick={goToNextPage}
+          disabled={page >= totalPages}
+          className="px-3 py-1.5"
+        >
           <span className="sr-only">Next page</span>
           Next
           <Chevron className="rotate-180" />

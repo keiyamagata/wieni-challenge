@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { CardGrid, Pagination } from "../../components";
 import { Recipe } from "../../types";
@@ -10,6 +11,7 @@ const Recipes = () => {
   const [totalPages, setTotalPages] = useState(0);
   const { page, goToNextPage, goToPreviousPage } = usePagination();
   const pageLimit = 8;
+  const navigate = useNavigate();
 
   const url = `/api/recipes/all?limit=${pageLimit}&offset=${
     (page - 1) * pageLimit
@@ -21,8 +23,10 @@ const Recipes = () => {
     if (data) {
       setCocktails(data.data);
       setTotalPages(Math.ceil(data.total / pageLimit));
+
+      if (totalPages && page > totalPages) navigate("/not-found");
     }
-  }, [data]);
+  }, [data, page, totalPages, navigate]);
 
   return (
     <main className="space-y-3 rounded-xl border border-neutral-500 bg-white/25 p-5 dark:border-0 dark:bg-transparent">
